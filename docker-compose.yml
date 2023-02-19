@@ -17,6 +17,8 @@ services:
         gitlab_rails['smtp_domain'] = "mail.example.com"
         gitlab_rails['smtp_authentication'] = "plain"
         gitlab_rails['smtp_enable_starttls_auto'] = true
+        gitlab_rails['gitlab_email_from'] = 'user@example.com'
+        gitlab_rails['gitlab_default_theme'] = 11
         letsencrypt['enable'] = true
         letsencrypt['contact_emails'] = ['user@gmail.com']
         letsencrypt['auto_renew'] = true
