@@ -48,7 +48,7 @@ install_gitlab() {
 install_nginx_proxy() {
     echo_run "apt install nginx -y"
     echo_run "rm /etc/nginx/sites-{available,enabled}/default"
-    echo_run "cp {default,gitlab}.conf /etc/nginx/sites-available/default"
+    echo_run "cp {default,gitlab}.conf /etc/nginx/sites-available/"
     echo_run "ln -sf /etc/nginx/sites-available/{default.conf,gitlab.conf} /etc/nginx/sites-enabled"
     echo_run "nginx -t"
     echo_rum "service nginx restart"
