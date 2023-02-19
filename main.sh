@@ -29,6 +29,15 @@ echo_run() {
 
 # ACTION FUNCTIONS
 
+change_ssh_port() {
+    echo_run "echo 'Port 2222' >> /etc/ssh/sshd_config"
+    echo_run "ufw enable"
+    echo_run "ufw allow 22,2222,80,443/tcp"
+    echo_run "ufw default deny incoming"
+    echo_run "ufw default allow outgoing"
+    echo_run "ufw status verbose"
+}
+
 install_docker() {
     echo_run "apt install docker.io docker-compose -y"
     echo_run "mkdir -p ~/docker/gitlab/"
@@ -43,6 +52,7 @@ install_gitlab() {
     echo_run "cd ~/docker/gitlab/"
     echo_run "docker-compose up -d"
     echo_run "cp update-gitlab.sh /usr/local/bin/"
+    echo_run "docker exec -it gitlab update-permissions"
 }
 
 install_nginx_proxy() {

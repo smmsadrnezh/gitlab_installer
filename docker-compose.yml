@@ -17,10 +17,13 @@ services:
         gitlab_rails['smtp_domain'] = "mail.example.com"
         gitlab_rails['smtp_authentication'] = "plain"
         gitlab_rails['smtp_enable_starttls_auto'] = true
+        letsencrypt['enable'] = true
+        letsencrypt['contact_emails'] = ['user@gmail.com']
+        letsencrypt['auto_renew'] = true
     ports:
-      - '22080:80'
+      - '2280:80'
       - '22443:443'
-      - '22:22'
+      - '2222:22'
     volumes:
       - '$GITLAB_HOME/config:/etc/gitlab'
       - '$GITLAB_HOME/logs:/var/log/gitlab'
