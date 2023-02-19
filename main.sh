@@ -42,6 +42,7 @@ install_gitlab() {
     echo_run "echo 'nameserver 185.51.200.2' >> /etc/resolv.conf"
     echo_run "cd ~/docker/gitlab/"
     echo_run "docker-compose up -d"
+    echo_run "cp update-gitlab.sh /usr/local/bin/"
 }
 
 install_nginx_proxy() {
