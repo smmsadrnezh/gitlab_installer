@@ -38,6 +38,8 @@ install_docker() {
 install_gitlab() {
     echo_run "cp docker-compose.yml ~/docker/gitlab/"
     echo_run "export GITLAB_HOME=/srv/gitlab"
+    echo_run "echo 'nameserver 178.22.122.100' >> /etc/resolv.conf"
+    echo_run "echo 'nameserver 185.51.200.2' >> /etc/resolv.conf"
     echo_run "docker compose up -d"
 }
 
