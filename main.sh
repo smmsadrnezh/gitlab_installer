@@ -66,6 +66,7 @@ install_nginx_proxy() {
 }
 
 ACTIONS=(
+    change_ssh_port
     install_docker
     install_gitlab
     install_nginx_proxy
