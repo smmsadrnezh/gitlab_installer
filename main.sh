@@ -52,6 +52,7 @@ install_gitlab() {
     echo_run "cd ~/docker/gitlab/"
     echo_run "docker-compose up -d"
     echo_run "cp update-gitlab.sh /usr/local/bin/"
+    echo_run "chmod +x /usr/local/bin/update-gitlab.sh"
     echo_run "docker exec -it gitlab update-permissions"
 }
 
